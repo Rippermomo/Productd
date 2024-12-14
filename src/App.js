@@ -5,10 +5,13 @@ import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from 'react
 function Navbar() {
   return (
     <nav className="navbar">
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/add-product">Add Product</Link></li>
-      </ul>
+     
+        <Link to="/">Home </Link>
+<div style={{}}>
+<Link to="/add-product"> Add Product</Link>
+     
+</div>
+        
     </nav>
   );
 }
@@ -21,7 +24,7 @@ function HomePage() {
     fetch('https://fakestoreapi.com/products')
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error('Error 404');
         }
         return response.json();
       })
@@ -30,7 +33,7 @@ function HomePage() {
         setError(false);
       })
       .catch((error) => {
-        console.error('Error fetching products:', error);
+        console.error('Error,cannot find the  product:', error);
         setError(true);
       });
   }, []);
